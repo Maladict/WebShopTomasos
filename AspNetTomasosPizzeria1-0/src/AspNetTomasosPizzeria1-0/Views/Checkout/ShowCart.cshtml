@@ -1,0 +1,64 @@
+﻿@model List<AspNetTomasosPizzeria1_0.Models.CartItem>
+
+<div class="col-md-5 well">
+    
+    <div id="pointInfo"></div>
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Maträtt</th>
+            <th>Pris</th>
+            <th>Antal</th>
+        </tr>
+        </thead>
+
+        @foreach (var food in Model)
+        {
+            <tr>
+                <td>@food.Matratt.MatrattNamn</td>
+                <td>@food.Matratt.Pris</td>
+                <td>@food.Quantity</td>
+                <td>
+                    <a asp-action="AdjustQuantity"
+                       asp-controller="Checkout"
+                       asp-route-id=@food.CartItemId
+                       asp-route-choice="1">
+                       
+                        <span class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></span>
+                    </a>
+
+                    <a asp-action="AdjustQuantity"
+                       asp-controller="Checkout"
+                       asp-route-id=@food.CartItemId
+                       asp-route-choice="0">
+                        
+                    <span class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></span>
+                    </a>
+                    <a class="btn btn-default" asp-action="DeleteFromCart" asp-controller="Checkout" asp-route-id=@food.CartItemId><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+
+
+            </tr>
+        }
+
+        <tfoot>
+        <tr>
+            <td>
+                <h3>Summa</h3></td>
+            <td>
+                <h3>@{
+                        var sum = 0;
+
+                        foreach (var cartItem in Model)
+                        {
+                            sum += (cartItem.Quantity*cartItem.Matratt.Pris);
+                        }
+                    } @sum</h3></td>
+        </tr>
+        </tfoot>
+    </table>
+
+
+    <a class="btn btn-default" asp-action="Index" asp-controller="Home">Tillbaka</a>
+    <a class="btn btn-default" asp-action="Checkout" asp-controller="Checkout">Slutför Köp</a>
+</div>

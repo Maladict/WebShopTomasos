@@ -1,0 +1,32 @@
+﻿@model List<AspNetTomasosPizzeria1_0.Models.Kund>
+
+<div class="well col-md-6" id="tableWell">
+   
+    <div>
+        <a class="btn btn-default" asp-controller="Account" asp-action="Register"><span class="glyphicon glyphicon-plus"></span></a>
+    </div>
+
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Användarnamn</th>
+            <th>Namn</th>
+            <th>E-post</th>
+            <th>Roll</th>
+        </tr>
+        </thead>
+        @foreach (var kund in Model)
+        {
+            <tr>
+                <td class="block">@kund.AnvandarNamn</td>
+                <td>@kund.Namn</td>
+                <td>@kund.Email</td>
+                <td>@kund.Role</td>
+                <td>
+                    <a class="btn btn-default" asp-controller="Account" asp-action="EditAccount" asp-route-id=@kund.KundId><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-default" asp-controller="Admin" asp-action="DeleteAccount" asp-route-id=@kund.KundId><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+                </tr>
+        }
+    </table>
+</div>

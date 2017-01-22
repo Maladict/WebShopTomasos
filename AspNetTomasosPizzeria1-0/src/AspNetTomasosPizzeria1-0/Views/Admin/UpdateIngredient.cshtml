@@ -1,0 +1,41 @@
+﻿@model AspNetTomasosPizzeria1_0.Models.Produkt
+
+
+<div class="panel panel-default col-sm-6">
+    <div class="panel-heading">
+        <h3 class="panel-title">Uppdatera ingrediens</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="container">
+            <form class="form-horizontal" asp-controller="Admin" asp-action="UpdateIngredient" method="post">
+
+                @* Id *@
+                <input asp-for="ProduktId" type="hidden" value="@Model.ProduktId" />
+
+                @*Name*@
+                <div class="form-group">
+                    <label class="control-label col-sm-2" asp-for="ProduktNamn"></label>
+                    <div class="col-sm-3 input-group">
+
+                        <input class="form-control input-validation-error"
+                               asp-for="ProduktNamn"
+                               placeholder="Ingrediens"
+                               maxlength="50" />
+
+                        <span class="field-validation-error text-danger"
+                              asp-validation-for="ProduktNamn"></span>
+                    </div>
+                </div>
+
+                @* Submit *@
+                <div class="col-sm-offset-2 col-sm-2">
+                    <a class="btn btn-default" asp-action="ViewIngredients" asp-controller="Admin">Tillbaka</a>
+                    <button class="btn btn-default" type="submit" value="Uppdatera">Uppdatera</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+

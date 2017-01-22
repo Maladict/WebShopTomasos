@@ -1,0 +1,96 @@
+﻿@model AspNetTomasosPizzeria1_0.ViewModels.UpdateFoodItemViewModel
+
+
+<div class="panel panel-default col-sm-6">
+    <div class="panel-heading">
+        <h3 class="panel-title">Uppdatera maträtt</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="container">
+            <form class="form-horizontal" asp-controller="Admin" asp-action="UpdateFoodItem" method="post">
+                
+                @* Id *@
+                <input asp-for="FoodItemId" type="hidden" value="@Model.FoodItemId"/>
+
+                @*Name*@
+                <div class="form-group">
+                    <label class="control-label col-sm-2" asp-for="Name"></label>
+                    <div class="col-sm-3 input-group">
+
+                        <input class="form-control input-validation-error"
+                               asp-for="Name"
+                               placeholder="Namn"
+                               maxlength="50" />
+
+                        <span class="field-validation-error text-danger"
+                              asp-validation-for="Name"></span>
+                    </div>
+                </div>
+
+                @*Price*@
+                <div class="form-group">
+                    <label class="control-label col-sm-2" asp-for="Price"></label>
+                    <div class="col-sm-3 input-group">
+
+
+                        <input type="number" class="form-control input-validation-error"
+                               asp-for="Price"
+                               placeholder="Pris"
+                               maxlength="4" />
+
+                        <span class="field-validation-error text-danger"
+                              asp-validation-for="Price"></span>
+                    </div>
+                </div>
+
+                @*Description*@
+                <div class="form-group">
+                    <label class="control-label col-sm-2" asp-for="Description"></label>
+                    <div class="col-sm-3 input-group">
+
+
+                        <textarea class="form-control input-validation-error"
+                                  asp-for="Description"
+                                  placeholder="Beskrivning"
+                                  maxlength="200"></textarea>
+
+                        <span class="field-validation-error text-danger"
+                              asp-validation-for="Description"></span>
+                    </div>
+                </div>
+
+                @*Type*@
+                <div class="form-group">
+
+
+                    <label class="control-label col-sm-2" asp-for="Type"></label>
+                    <div class="col-sm-3 input-group">
+
+                        <select asp-for="Type" asp-items="@Model.TypeOptions" class="form-control"></select>
+
+                    </div>
+                </div>
+
+                @*Ingredients*@
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" asp-for="IngredientsChosen"></label>
+                    <div class="col-sm-3 input-group">
+
+                        <select asp-for="IngredientsChosen" asp-items="@Model.IngredientsOptions" class="form-control" multiple="multiple"></select>
+
+                    </div>
+                </div>
+
+                @* Submit *@
+                <div class="col-sm-offset-2 col-sm-2">
+                    <a class="btn btn-default" asp-action="ViewFoodItems" asp-controller="Admin">Tillbaka</a>
+                    <button class="btn btn-default" type="submit" value="Uppdatera">Uppdatera</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,114 @@
+﻿@using System.Threading.Tasks
+@using Microsoft.ApplicationInsights.Extensibility.Implementation
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Mvc;
+@using Newtonsoft.Json;
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tomasos Pizzeria</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="~/css/simple-sidebar.css" rel="stylesheet">
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+
+<header>
+    <h1>Tomasos Pizzeria</h1>
+</header>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Tomasos Pizzeria</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><span class="pizzaInfo"></span></li>
+
+            @await Component.InvokeAsync("MenuCart")
+
+
+        </ul>
+    </div>
+</nav>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a asp-controller="Home" asp-action="Index">
+                    Meny
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="FilterCategories" asp-route-id="1">Pizza</a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="FilterCategories" asp-route-id="2">Pasta</a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="FilterCategories" asp-route-id="3">Sallad</a>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+
+
+<div id="page-content-wrapper">
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                @RenderBody()
+            </div>
+        </div>
+
+
+        <footer class="panel-footer">
+            <form asp-controller="Home"
+                  asp-action="FooterPartial"
+                  data-ajax="true"
+                  data-ajax-mode="replace"
+                  data-ajax-update=".pizzaInfo"
+                  data-ajax-method="GET"
+                  class="form form-horizontal form-">
+
+                <span class="form-group">
+                            <label name="answer">Gillar du pizza?</label> <select name="answer">
+
+                                @{
+                                    <option value="1">Ja</option>
+                                    <option value="0">Nej</option>
+                                }
+
+                            </select>
+                        <button class="btn btn-default" type="submit">Svara</button><span class="pizzaInfo"></span></span>
+            </form>
+        </footer>
+
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.ajax.unobtrusive/3.2.4/jquery.unobtrusive-ajax.min.js"></script>
+
+    </div>
+</div>
+</body>
+</html>

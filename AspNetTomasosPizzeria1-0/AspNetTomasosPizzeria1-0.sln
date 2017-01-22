@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DBB7A0CE-9B37-4602-A115-D072583812B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DF5A49A4-EEB3-4227-9D70-BE6F0CB68653}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetTomasosPizzeria1-0", "src\AspNetTomasosPizzeria1-0\AspNetTomasosPizzeria1-0.xproj", "{B577BF25-16CE-489A-9D9F-6F04BAC653B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B577BF25-16CE-489A-9D9F-6F04BAC653B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B577BF25-16CE-489A-9D9F-6F04BAC653B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B577BF25-16CE-489A-9D9F-6F04BAC653B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B577BF25-16CE-489A-9D9F-6F04BAC653B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B577BF25-16CE-489A-9D9F-6F04BAC653B4} = {DBB7A0CE-9B37-4602-A115-D072583812B6}
+	EndGlobalSection
+EndGlobal

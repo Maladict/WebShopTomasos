@@ -1,0 +1,38 @@
+﻿@model AspNetTomasosPizzeria1_0.Models.Produkt
+
+
+<div class="panel panel-default col-sm-6">
+    <div class="panel-heading">
+        <h3 class="panel-title">Lägg till ingrediens</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="container">
+            <form class="form-horizontal" asp-controller="Admin" asp-action="CreateIngredient" method="post">
+
+                @*Name*@
+                <div class="form-group">
+                    <label class="control-label col-sm-2" asp-for="ProduktNamn"></label>
+                    <div class="col-sm-3 input-group">
+
+                        <input class="form-control input-validation-error"
+                               asp-for="ProduktNamn"
+                               placeholder="Namn"
+                               maxlength="50" />
+
+                        <span class="field-validation-error text-danger"
+                              asp-validation-for="ProduktNamn"></span>
+                    </div>
+                </div>
+
+                @* Submit *@
+                <div class="col-sm-offset-2 col-sm-2">
+                    <a class="btn btn-default" asp-action="ViewFoodItems" asp-controller="Admin">Tillbaka</a>
+                    <button class="btn btn-default" type="submit" value="Lägg till">Lägg till</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,31 @@
+﻿@model AspNetTomasosPizzeria1_0.ViewModels.ConfirmOrderViewModel
+
+
+
+<div class="well col-md-5" id="tableWell">
+    <h1>Tack för din beställning!</h1>
+    
+    <h3>Beställningsnummer: @Model.Order.BestallningId</h3>
+
+    <table class="table table-condensed">
+        <tr>
+            <td>Originalpris</td>
+           
+            <td>@Model.OriginalPrice kr</td>
+        </tr>
+        <tr>
+            <td>Poängrabatt</td>
+            <td>-@Model.DiscountPoints kr</td>
+        </tr>
+        <tr>
+            <td>Mängdrabatt</td>
+            <td>-@Model.DiscountMultipleOrders kr</td>
+        </tr>
+        <tr>
+            <td><h3>Att betala</h3></td>
+            <td><h3>@Model.Order.Totalbelopp kr</h3></td>
+        </tr>
+    </table>
+
+    <a class="btn btn-default"asp-controller="Home" asp-action="Index">Tillbaka</a>
+</div>

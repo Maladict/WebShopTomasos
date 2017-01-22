@@ -1,0 +1,152 @@
+﻿@model AspNetTomasosPizzeria1_0.Models.Kund
+
+@* Panel around form *@
+<div class="panel panel-default col-sm-6">
+    <div class="panel-heading">
+        <h3 class="panel-title">Registrera ny användare</h3>
+    </div>
+<div class="panel-body">
+
+    <div class="container">
+        <form class="form-horizontal" asp-controller="Account" asp-action="Register">
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="AnvandarNamn"></label>
+                <div class="col-sm-3 input-group">
+
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+                    <input class="form-control input-validation-error"
+                           asp-for="AnvandarNamn"
+                           placeholder="Användarnamn" 
+                           maxlength="20"/>
+
+                    <span class="field-validation-error text-danger"
+                              asp-validation-for="AnvandarNamn"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="Losenord"></label>
+                <div class="col-sm-3 input-group">
+
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+                    <input class="form-control input-validation-error"
+                           asp-for="Losenord"
+                           placeholder="Lösenord" 
+                           maxlength="20"
+                           />
+
+                    <span class="field-validation-error text-danger"
+                              asp-validation-for="Losenord"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="Email"></label>
+                <div class="col-sm-3 input-group">
+
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+
+                    <input class="form-control input-validation-error"
+                           asp-for="Email"
+                           placeholder="Email" 
+                           maxlength="50"/>
+
+                    <span class="field-validation-error text-danger"
+                              asp-validation-for="Email"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="Namn"></label>
+                <div class="col-sm-3 input-group">
+
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+                    <input class="form-control input-validation-error"
+                           asp-for="Namn"
+                           placeholder="Namn" 
+                           maxlength="50"/>
+
+                    <span class="field-validation-error text-danger"
+                              asp-validation-for="Namn"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="Gatuadress"></label>
+                <div class="col-sm-3 input-group">
+
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+
+                    <input class="form-control input-validation-error"
+                           asp-for="Gatuadress"
+                           placeholder="Gatuadress" 
+                           maxlength="50"/>
+
+                    <span class="field-validation-error text-danger"
+                              asp-validation-for="Gatuadress"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="Postnr"></label>
+                <div class="col-sm-3 input-group">
+
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+
+                    <input class="form-control input-validation-error"
+                           asp-for="Postnr"
+                           placeholder="Postnummer" 
+                           maxlength="20"/>
+
+                    <span class="field-validation-error text-danger"
+                              asp-validation-for="Postnr"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="Postort"></label>
+                <div class="col-sm-3 input-group">
+
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+
+                    <input class="form-control input-validation-error"
+                           asp-for="Postort"
+                           placeholder="Postort" 
+                           maxlength="50"/>
+
+                    <span class="field-validation-error text-danger"
+                              asp-validation-for="Postort"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="Telefon"></label>
+                <div class="col-sm-3 input-group">
+
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+
+                    <input class="form-control input-validation-error"
+                           asp-for="Telefon"
+                           placeholder="Telefonnummer" 
+                           maxlength="50"/>
+
+                    <span class="field-validation-error text-danger"
+                              asp-validation-for="Telefon"></span>
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-offset-2 col-sm-2">
+                <button class="btn btn-default" type="submit" value="Registrera">Registrera</button>
+            </div>
+        </form>
+    </div>
+        
+</div>
+</div>

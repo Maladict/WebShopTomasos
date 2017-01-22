@@ -1,0 +1,30 @@
+﻿@using System.Threading.Tasks
+@model AspNetTomasosPizzeria1_0.Models.Matratt
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h1>@Model.MatrattNamn</h1></div>
+    <div class="panel-body well">
+        <ul>
+            <li>
+                <h3>Beskrivning</h3>
+                @Model.Beskrivning
+            </li>
+            <li>Pris: @Model.Pris kr</li>
+            <li>
+                <h3>Ingredienser</h3>
+                <ul>
+                    @foreach (var x in Model.MatrattProdukt)
+                    {
+                            <li>
+                                @x.Produkt.ProduktNamn
+                            </li>                       
+                    }
+                </ul>
+            </li>
+            <li>
+                <a class="btn btn-default"asp-controller="Checkout" asp-action="AddToCart" asp-route-id="@Model.MatrattId" asp-route-quantity="1"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                <a class="btn btn-default"asp-controller="Home" asp-action="Index">Tillbaka</a>
+            </li>
+        </ul>
+    </div>
+</div>

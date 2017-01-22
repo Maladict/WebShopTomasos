@@ -1,0 +1,46 @@
+﻿@model AspNetTomasosPizzeria1_0.ViewModels.MenuBarViewModel
+
+@using AspNetTomasosPizzeria1_0.Models
+@using Microsoft.AspNetCore.Identity
+
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+
+
+@{
+    if (SignInManager.IsSignedIn(User))
+    {
+       
+        if (User.IsInRole("Administrator"))
+        {
+            <li><a asp-controller="Admin" asp-action="Index"><span class="glyphicon glyphicon-cog"></span> Administratör</a></li>
+        }
+        else if (User.IsInRole("PremiumUser"))
+        {
+            <li><div id="userInfo" class="well collapse">Du är en premiumanvändare med @Model.User.Points poäng</div></li>
+            <li>
+                <a href="#userInfo" data-toggle="collapse">Premiumanvändare</a>
+               
+            </li>
+        }
+        else if (User.IsInRole("RegularUser"))
+        {
+            <li><div id="userInfo" class="well collapse">Du är en helt vanlig användare. Ge oss alla dina pengar och uppgradera nu!</div></li>
+                        <li>
+                            <a href="#userInfo" data-toggle="collapse">Basanvändare</a>
+                            </li>
+        }
+
+        <li><a asp-controller="Account" asp-action="ShowAccount"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
+        <li><a asp-controller="Account" asp-action="Logoff"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a></li>
+    }
+    else
+    {
+        <li><a asp-controller="Account" asp-action="Register"><span class="glyphicon glyphicon-user"></span> Registrera</a></li>
+        <li><a asp-controller="Account" asp-action="LogIn"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
+    }
+}
+
+<li><a asp-controller="Checkout" asp-action="ShowCart"><span class="glyphicon glyphicon-shopping-cart"></span> Kundkorg (@Model.Cart.Sum(x => x.Quantity))</a></li>

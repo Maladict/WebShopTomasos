@@ -1,0 +1,55 @@
+﻿@model AspNetTomasosPizzeria1_0.Models.Kund
+
+<div class="panel panel-default col-sm-6">
+    <div class="panel-heading">
+        <h3 class="panel-title">Logga in</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="container">
+            <form class="form-horizontal" asp-controller="Account" asp-action="LogIn">
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" asp-for="AnvandarNamn"></label>
+                    <div class="col-sm-3 input-group">
+
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+                        <input class="form-control input-validation-error"
+                               asp-for="AnvandarNamn"
+                               placeholder="Användarnamn" />
+
+                        <span class="field-validation-error text-danger"
+                              asp-validation-for="AnvandarNamn"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" asp-for="Losenord"></label>
+                    <div class="col-sm-3 input-group">
+
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+                        <input class="form-control input-validation-error"
+                               asp-for="Losenord"
+                               placeholder="Lösenord" />
+
+                        <span class="field-validation-error text-danger"
+                              asp-validation-for="Losenord"></span>
+                    </div>
+                </div>
+
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button class="btn btn-default" type="submit" value="Registrera">Logga in</button>
+                </div>                                   
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-6 well">
+    <h3>Inget konto?</h3>
+    <a class="btn btn-default" asp-controller="Account" asp-action="Register">Registrera</a>
+
+</div>

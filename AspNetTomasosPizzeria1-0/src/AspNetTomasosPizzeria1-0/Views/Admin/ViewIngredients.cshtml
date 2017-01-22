@@ -1,0 +1,30 @@
+﻿@model List<AspNetTomasosPizzeria1_0.Models.Produkt>
+
+<div class="well col-md-6" id="tableWell">
+    
+    <div>
+        <a class="btn btn-default" asp-controller="Admin" asp-action="CreateIngredient"><span class="glyphicon glyphicon-plus"></span></a>
+    </div>
+
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Benämning</th>
+        </tr>
+        </thead>
+        @foreach (var ingredient in Model)
+        {
+            <tr>
+                <td class="block">@ingredient.ProduktNamn</td>
+                <td>
+                    <a class="btn btn-default" asp-controller="Admin" asp-action="UpdateIngredient" asp-route-id=@ingredient.ProduktId><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-default" asp-controller="Admin" asp-action="DeleteIngredient" asp-route-id=@ingredient.ProduktId><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div>
+        <a class="btn btn-default" asp-action="Index" asp-controller="Admin">Tillbaka</a>
+    </div>
+</div>

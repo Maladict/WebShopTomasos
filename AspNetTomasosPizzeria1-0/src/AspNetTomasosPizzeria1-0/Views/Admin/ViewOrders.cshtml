@@ -1,0 +1,54 @@
+﻿@model List<AspNetTomasosPizzeria1_0.Models.Bestallning>
+
+<div class="well col-md-6" id="tableWell">
+    
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Beställningsdatum</th>
+            <th>Beställningsnummer</th>
+            <th>Totalbelopp</th>
+            <th>Användare</th>
+            <th>Levererad</th>
+        </tr>
+        </thead>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td class="block">@order.BestallningDatum</td>
+                <td class="block">@order.BestallningId</td>
+                <td class="block">@order.Totalbelopp</td>
+                <td class="block">@order.Kund.AnvandarNamn</td>
+                <td class="block">
+                    <form asp-controller="Admin" asp-action="UpdateOrder" method="post">
+                        <input name="id" type="hidden" value=@order.BestallningId />
+                        <select name="delivered">
+
+                            @{
+                                if (order.Levererad)
+                                {
+                                    <option value="1" selected>Ja</option>
+                                    <option value="0">Nej</option>
+                                }
+                                else
+                                {
+                                    <option value="1">Ja</option>
+                                    <option value="0" selected>Nej</option>
+                                }
+                            }
+                        </select>
+                        <button type="submit">Uppdatera</button>
+                            </form>
+
+            <td class="block">
+                    @*<a class="btn btn-default" asp-controller="Admin" asp-action="UpdateOrder" asp-route-id=@order.BestallningId><span class="glyphicon glyphicon-pencil"></span></a>*@
+                    <a class="btn btn-default" asp-controller="Admin" asp-action="DeleteOrder" asp-route-id=@order.BestallningId><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div>
+        <a class="btn btn-default" asp-action="Index" asp-controller="Admin">Tillbaka</a>
+    </div>
+</div>

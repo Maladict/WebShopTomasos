@@ -1,0 +1,32 @@
+﻿@model AspNetTomasosPizzeria1_0.Models.Kund
+
+
+
+<div class="well col-md-5"  id="tableWell">
+    <h1>Kontouppgifter</h1>
+
+    <table class="table table-condensed">
+        <tr>
+            <td>Kontotyp</td><td>@Model.Role</td>
+        </tr>
+        <tr>
+            <td>Användarnamn</td>
+            <td>@Model.AnvandarNamn</td>
+        </tr>
+        <tr>
+            <td>Epostadress</td><td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td>Namn</td>
+            <td>@Model.Namn</td>
+        </tr>
+        <tr>
+            <td>Adress</td>
+            <td>@Model.Gatuadress, @Model.Postnr @Model.Postort</td>
+        </tr>
+        <tr><td>Telefonnummer</td><td>@Model.Telefon</td></tr>
+    </table>
+    
+    <a class="btn btn-default" asp-controller="Home" asp-action="Index">Tillbaka</a>
+    <a class="btn btn-default" asp-controller="Account" asp-action="EditAccount" asp-route-id=@Model.KundId>Ändra uppgifter</a>
+</div>

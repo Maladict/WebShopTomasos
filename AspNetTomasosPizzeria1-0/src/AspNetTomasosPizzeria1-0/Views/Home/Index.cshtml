@@ -1,0 +1,38 @@
+﻿@model List<AspNetTomasosPizzeria1_0.Models.Matratt>
+
+
+        
+    @foreach (var matratt in Model)
+            {
+                <div class="well col-md-3" id="pizzaBox">
+                    @{
+                        if (matratt.MatrattTyp == 1)
+                        {
+                            <img src="~/images/pizza.png" />
+                        }
+                        else if (matratt.MatrattTyp == 2)
+                        {
+                            <img src="~/images/pasta.png"/>
+                        }
+                        else
+                        {
+                            <img src="~/images/salad.png" />
+                        }
+                    }
+                    <h3>
+                        <strong>@matratt.MatrattNamn</strong>
+                        <span class="pull-right label label-default">@matratt.Pris.ToString("c")</span>
+                    </h3>
+                    <ul>
+                        @*<li><img src="~/images/pizza-1.png"/></li>
+                        <li>@matratt.MatrattNamn</li>
+                        <li>@matratt.Pris kr</li>*@
+                        <li>
+                            <a class="btn btn-default" asp-controller="Store" asp-action="MatrattDetails" asp-route-id="@matratt.MatrattId">Detaljer</a>
+                            <a class="btn btn-default" asp-controller="Checkout" asp-action="AddToCart" asp-route-id=@matratt.MatrattId asp-route-quantity="1"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        </li>
+                    </ul>
+                </div>
+    }
+
+
